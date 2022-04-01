@@ -7,8 +7,7 @@ class DbUtil {
     return sql.openDatabase(
       path.join(dbPath, 'travel.db'),
       onCreate: (db, version) {
-        return db.execute(
-            'CREATE TABLE  itemstravel (id INTEGER PRIMARY KEY, item TEXT, checked INTEGER)');
+        return db.execute('CREATE TABLE  itemstravel (id INTEGER PRIMARY KEY, item TEXT, checked INTEGER)');
       },
       version: 1,
     );

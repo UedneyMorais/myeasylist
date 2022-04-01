@@ -11,20 +11,14 @@ class HomeProvider with ChangeNotifier {
   void addItem({required String itemDescription}) {
     Item newItem = Item(id: lastItem + 1, item: itemDescription, checked: 0);
     items.add(newItem);
-    DbUtil.insert('itemstravel',
-        {'id': newItem.id, 'item': newItem.item, 'checked': newItem.checked});
+    DbUtil.insert('itemstravel', {'id': newItem.id, 'item': newItem.item, 'checked': newItem.checked});
     loadPlaces();
     notifyListeners();
   }
 
   void updateItem(Item item) async {
-    Item itemToUpdate =
-        Item(id: item.id, item: item.item, checked: item.checked);
-    await DbUtil.update('itemstravel', {
-      'id': itemToUpdate.id,
-      'item': itemToUpdate.item,
-      'checked': itemToUpdate.checked
-    });
+    Item itemToUpdate = Item(id: item.id, item: item.item, checked: item.checked);
+    await DbUtil.update('itemstravel', {'id': itemToUpdate.id, 'item': itemToUpdate.item, 'checked': itemToUpdate.checked});
     checked = itemToUpdate.checked;
     loadPlaces();
     notifyListeners();
@@ -41,8 +35,7 @@ class HomeProvider with ChangeNotifier {
     final dataList = await DbUtil.getData('itemstravel');
     items = dataList
         .map(
-          (item) => Item(
-              id: item['id'], item: item['item'], checked: item['checked']),
+          (item) => Item(id: item['id'], item: item['item'], checked: item['checked']),
         )
         .toList();
     lastItem = items.last.id;
