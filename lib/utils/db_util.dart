@@ -1,3 +1,4 @@
+import 'package:myeasylist/utils/util.dart';
 import 'package:sqflite/sqflite.dart' as sql;
 import 'package:path/path.dart' as path;
 
@@ -5,9 +6,9 @@ class DbUtil {
   static Future<sql.Database> database() async {
     final dbPath = await sql.getDatabasesPath();
     return sql.openDatabase(
-      path.join(dbPath, 'travel.db'),
+      path.join(dbPath, DbConfig.dbName + DbConfig.dbExtension),
       onCreate: (db, version) {
-        return db.execute('CREATE TABLE  itemstravel (id INTEGER PRIMARY KEY, item TEXT, checked INTEGER)');
+        return db.execute('CREATE TABLE  ' + DbConfig.dbName + ' (id INTEGER PRIMARY KEY, item TEXT, checked INTEGER)');
       },
       version: 1,
     );
