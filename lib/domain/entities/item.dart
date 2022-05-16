@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_this
+
 class Item {
   int _id;
   int get id => this._id;

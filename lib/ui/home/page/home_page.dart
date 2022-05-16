@@ -24,6 +24,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        backgroundColor: _color,
         title: const Text('Lista de itens'),
         actions: [
           IconButton(
@@ -108,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                                                       child: TextFormField(
                                                         controller: _controllerItem,
                                                         validator: (value) {
-                                                          if (value == null || value.isEmpty || value.length > 1) {
+                                                          if (value == null || value.isEmpty) {
                                                             return "Digite uma descrição para o item.";
                                                           } else {
                                                             return null;
@@ -200,10 +201,6 @@ class _HomePageState extends State<HomePage> {
                                     } else {
                                       isChecked = 0;
                                     }
-                                    bool? _formOk = _formKey.currentState!.validate();
-                                    if (!_formOk) {
-                                      return;
-                                    }
 
                                     Item itemToUpdate = Item(id: provider.items[index].id, item: provider.items[index].item, checked: isChecked);
                                     controller.updateItem(item: itemToUpdate);
@@ -229,6 +226,8 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () async {
+          _controllerItem.text = '';
+
           showDialog(
               context: context,
               builder: (BuildContext context) {
