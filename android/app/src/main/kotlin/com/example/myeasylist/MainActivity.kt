@@ -1,4 +1,4 @@
-package com.example.myeasylist
+package com.myeasylist.app
 
 import io.flutter.embedding.android.FlutterActivity
 
