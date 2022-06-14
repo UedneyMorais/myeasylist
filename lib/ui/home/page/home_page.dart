@@ -14,7 +14,8 @@ class HomePage extends StatefulWidget {
 }
 
 final BannerAd myBanner = BannerAd(
-  adUnitId: 'ca-app-pub-7865824435572987/2188888291', //'ca-app-pub-3940256099942544/6300978111',
+  adUnitId: 'ca-app-pub-7865824435572987/3962924379', //'ca-app-pub-3940256099942544/6300978111',
+  //adUnitId: 'ca-app-pub-3940256099942544/6300978111',
   size: AdSize.banner,
   request: AdRequest(),
   listener: BannerAdListener(),
