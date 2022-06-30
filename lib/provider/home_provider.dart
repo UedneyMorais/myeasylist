@@ -37,7 +37,7 @@ class HomeProvider with ChangeNotifier {
           (item) => Item(id: item['id'], item: item['item'], checked: item['checked']),
         )
         .toList();
-    lastItem = items.last.id;
+    lastItem = items.isNotEmpty ? items.last.id : 0;
     notifyListeners();
   }
 }

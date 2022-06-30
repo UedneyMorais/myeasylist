@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:myeasylist/provider/home_provider.dart';
@@ -17,15 +19,17 @@ final BannerAd myBanner = BannerAd(
   adUnitId: 'ca-app-pub-7865824435572987/3962924379', //'ca-app-pub-3940256099942544/6300978111',
   //adUnitId: 'ca-app-pub-3940256099942544/6300978111',
   size: AdSize.banner,
-  request: AdRequest(),
-  listener: BannerAdListener(),
+  request: const AdRequest(),
+  listener: const BannerAdListener(),
 );
 
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    //for (int i = 0; i < 1000; i++) {
     myBanner.load();
+    //}
   }
 
   @override
