@@ -25,7 +25,7 @@ stages:
       name: key
       displayName: Download signing key
       inputs:
-        secureFile: 'key.jks'
+        secureFile: 'upload-keystore.jks'
 
     # adjust paths and file names here
     - task: Bash@3
@@ -78,31 +78,31 @@ stages:
         ArtifactName: 'AAB'
         publishLocation: 'Container'
 
-- stage: iOSStage
-  pool: 
-    vmImage: 'macos-latest'
-  dependsOn: []
-  displayName: iOS
-  jobs:
+#- stage: iOSStage
+#  pool: 
+#    vmImage: 'macos-latest'
+#  dependsOn: []
+#  displayName: iOS
+#  jobs:
  
-  - job: iOSJob
-    displayName: iOS
-    steps: 
+  #- job: iOSJob
+  #  displayName: iOS
+  #  steps: 
           
     # replace "iosKey" and "yourPwd" with your secure file name and password
-    - task: InstallAppleCertificate@2
-      displayName: Install certificate
-      inputs:
-        certSecureFile: 'iosKey'
-        certPwd: 'yourPwd'
-        keychain: 'temp'
+    #- task: InstallAppleCertificate@2
+    #  displayName: Install certificate
+    #  inputs:
+    #    certSecureFile: 'iosKey'
+    #    certPwd: 'yourPwd'
+    #    keychain: 'temp'
     
     # replace "ios_Profile.mobileprovision" with your secure file name
-    - task: InstallAppleProvisioningProfile@1
-      displayName: Install provisioning file
-      inputs:
-        provisioningProfileLocation: 'secureFiles'
-        provProfileSecureFile: 'ios_Profile.mobileprovision'
+    #- task: InstallAppleProvisioningProfile@1
+    #  displayName: Install provisioning file
+    #  inputs:
+    #    provisioningProfileLocation: 'secureFiles'
+    #    provProfileSecureFile: 'ios_Profile.mobileprovision'
         
     - task: FlutterInstall@0
       displayName: "Install Flutter SDK"
