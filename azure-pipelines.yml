@@ -25,7 +25,7 @@ stages:
       name: key
       displayName: Download signing key
       inputs:
-        secureFile: 'key.jks'
+        secureFile: 'upload-keystore.jks'
 
     # adjust paths and file names here
     - task: Bash@3
