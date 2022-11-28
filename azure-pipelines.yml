@@ -25,7 +25,7 @@ stages:
       name: key
       displayName: Download signing key
       inputs:
-        secureFile: 'upload-keystore.jks'
+        secureFile: 'key.jks'
 
     # adjust paths and file names here
     - task: Bash@3
@@ -77,7 +77,7 @@ stages:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'AAB'
         publishLocation: 'Container'
-
+##########
 #- stage: iOSStage
 #  pool: 
 #    vmImage: 'macos-latest'
@@ -85,77 +85,24 @@ stages:
 #  displayName: iOS
 #  jobs:
  
-  #- job: iOSJob
-  #  displayName: iOS
-  #  steps: 
+#  - job: iOSJob
+#    displayName: iOS
+#    steps: 
           
     # replace "iosKey" and "yourPwd" with your secure file name and password
-    #- task: InstallAppleCertificate@2
-    #  displayName: Install certificate
-    #  inputs:
-    #    certSecureFile: 'iosKey'
-    #    certPwd: 'yourPwd'
-    #    keychain: 'temp'
+#    - task: InstallAppleCertificate@2
+#      displayName: Install certificate
+#      inputs:
+#        certSecureFile: 'iosKey'
+#        certPwd: 'yourPwd'
+#        keychain: 'temp'
     
     # replace "ios_Profile.mobileprovision" with your secure file name
-    #- task: InstallAppleProvisioningProfile@1
-    #  displayName: Install provisioning file
-    #  inputs:
-    #    provisioningProfileLocation: 'secureFiles'
-    #    provProfileSecureFile: 'ios_Profile.mobileprovision'
-        
-    - task: FlutterInstall@0
-      displayName: "Install Flutter SDK"
-      inputs:
-        mode: 'auto'
-        channel: 'stable'
-        version: 'latest'
-
-    - task: FlutterCommand@0
-      displayName: "Run Flutter diagnostics"
-      inputs:
-        projectDirectory: '.'
-        arguments: 'doctor -v'
-
-    # adjust path to the *.plist file
-    - task: FlutterBuild@0
-      displayName: "Build application"
-      inputs:
-        target: ipa
-        projectDirectory: '$(Build.SourcesDirectory)'
-        exportOptionsPlist: 'ios/exportOptions.plist'
-
-    - task: FlutterTest@0
-      displayName: "Run unit tests"
-      inputs:
-        generateCodeCoverageReport: true
-        projectDirectory: '$(Build.SourcesDirectory)'
-
-    - task: CopyFiles@2
-      displayName: "Copy app to staging directory"
-      inputs:
-        sourceFolder: '$(Agent.BuildDirectory)'
-        contents: '**/ipa/*.ipa'
-        targetFolder: '$(Build.StagingDirectory)'
-        flattenFolders: true
-
-    - task: PublishBuildArtifacts@1
-      displayName: "Publish IPA file"
-      inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'IPA'
-        publishLocation: 'Container'
-        
-#- stage: winStage
-#  pool: 
-#    vmImage: 'windows-latest'
-#  dependsOn: []
-#  displayName: Windows
-#  jobs:
- 
-#  - job: windowsJob
-#    displayName: Windows
-#    steps: 
+#    - task: InstallAppleProvisioningProfile@1
+#      displayName: Install provisioning file
+#      inputs:
+#        provisioningProfileLocation: 'secureFiles'
+#        provProfileSecureFile: 'ios_Profile.mobileprovision'
         
 #    - task: FlutterInstall@0
 #      displayName: "Install Flutter SDK"
@@ -163,6 +110,59 @@ stages:
 #        mode: 'auto'
 #        channel: 'stable'
 #        version: 'latest'
+
+#    - task: FlutterCommand@0
+#      displayName: "Run Flutter diagnostics"
+#      inputs:
+#        projectDirectory: '.'
+#        arguments: 'doctor -v'
+
+    # adjust path to the *.plist file
+#    - task: FlutterBuild@0
+#      displayName: "Build application"
+#      inputs:
+#        target: ipa
+#        projectDirectory: '$(Build.SourcesDirectory)'
+#        exportOptionsPlist: 'ios/exportOptions.plist'
+
+#    - task: FlutterTest@0
+#      displayName: "Run unit tests"
+#      inputs:
+#        generateCodeCoverageReport: true
+#        projectDirectory: '$(Build.SourcesDirectory)'
+
+#    - task: CopyFiles@2
+#      displayName: "Copy app to staging directory"
+#      inputs:
+#        sourceFolder: '$(Agent.BuildDirectory)'
+#        contents: '**/ipa/*.ipa'
+#        targetFolder: '$(Build.StagingDirectory)'
+#        flattenFolders: true
+
+#    - task: PublishBuildArtifacts@1
+#      displayName: "Publish IPA file"
+#      inputs:
+#        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+#        ArtifactName: 'IPA'
+#        publishLocation: 'Container'
+##########        
+- stage: winStage
+  pool: 
+    vmImage: 'windows-latest'
+  dependsOn: []
+  displayName: Windows
+  jobs:
+ 
+  - job: windowsJob
+    displayName: Windows
+    steps: 
+        
+    - task: FlutterInstall@0
+      displayName: "Install Flutter SDK"
+      inputs:
+        mode: 'auto'
+        channel: 'stable'
+        version: 'latest'
     
     - task: FlutterCommand@0
       displayName: "Run Flutter diagnostics"
