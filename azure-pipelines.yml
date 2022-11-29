@@ -19,7 +19,7 @@
 #  displayName: 'Run a multi-line script'
 
 jobs:
-  - job: Mobile
+  - job: Android
     pool:
       vmImage: 'ubuntu-latest'
     steps:
@@ -29,6 +29,10 @@ jobs:
           channel: 'stable'
           version: 'latest'
 
+      - task: FlutterTest@0
+        inputs:
+          projectDirectory: '.'
+
       - task: FlutterBuild@0
         inputs:
           target: 'apk'
@@ -36,6 +40,4 @@ jobs:
           entryPoint: "lib/main.dart"
           iosCodesign: false
 
-      - task: FlutterTest@0
-        inputs:
-          projectDirectory: '.'
+
