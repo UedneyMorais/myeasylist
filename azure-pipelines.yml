@@ -1,206 +1,43 @@
-trigger:
-  - master
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
 
-stages:
-- stage: AndroidStage
-  pool:
-    vmImage: 'ubuntu-latest'
-  dependsOn: []
-  displayName: Android
-  jobs:
+#trigger:
+#- main
 
-  - job: AndroidJob
-    displayName: Android
-    steps: 
+#pool:
+#  vmImage: ubuntu-latest
 
-    # replace "key.properties" with your secure file name
-    - task: DownloadSecureFile@1
-      name: keyprop
-      displayName: Download key properties file
-      inputs:
-        secureFile: 'key.properties' 
+#steps:
+#- script: echo Hello, world!
+#  displayName: 'Run a one-line script'
 
-    # replace "key.jks" with your secure file name
-    - task: DownloadSecureFile@1
-      name: key
-      displayName: Download signing key
-      inputs:
-        secureFile: 'key.jks'
+#- script: |
+#    echo Add other tasks to build, test, and deploy your project.
+#    echo See https://aka.ms/yaml
+#  displayName: 'Run a multi-line script'
 
-    # adjust paths and file names here
-    - task: Bash@3
-      displayName: Copy config files
-      inputs:
-        targetType: 'inline'
-        script: |
-          cp $(keyprop.secureFilePath) $(Build.SourcesDirectory)/android/key.properties
-          cp $(key.secureFilePath) $(Build.SourcesDirectory)/android/app/key.jks
-          
-          echo "key.properties copied to $(Build.SourcesDirectory)/android/key.properties"
-          echo "key.jks copied to $(Build.SourcesDirectory)/android/app/key.jks"
-    - task: FlutterInstall@0
-      displayName: "Install Flutter SDK"
-      inputs:
-        mode: 'auto'
-        channel: 'stable'
-        version: 'latest'
+jobs:
+  - job: Android
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - task: FlutterInstall@0
+        inputs:
+          mode: 'auto'
+          channel: 'stable'
+          version: 'latest'
 
-    - task: FlutterCommand@0
-      displayName: "Run Flutter diagnostics"
-      inputs:
-        projectDirectory: '.'
-        arguments: 'doctor -v'
+      - task: FlutterTest@0
+        inputs:
+          projectDirectory: '.'
 
-    - task: FlutterBuild@0
-      displayName: "Build application"
-      inputs:
-        target: 'aab'
-        projectDirectory: '$(Build.SourcesDirectory)'
+      - task: FlutterBuild@0
+        inputs:
+          target: 'apk'
+          projectDirectory: '.'
+          entryPoint: "lib/main.dart"
+          iosCodesign: false
 
-    - task: FlutterTest@0
-      displayName: "Run unit tests"
-      inputs:
-        generateCodeCoverageReport: true
-        projectDirectory: '$(Build.SourcesDirectory)'
 
-    - task: CopyFiles@2
-      displayName: "Copy app to staging directory"
-      inputs:
-        sourceFolder: '$(Agent.BuildDirectory)'
-        contents: '**/bundle/**'
-        targetFolder: '$(Build.StagingDirectory)'
-        flattenFolders: true
-
-    - task: PublishBuildArtifacts@1
-      displayName: "Publish AAB file"
-      inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'AAB'
-        publishLocation: 'Container'
-
-- stage: iOSStage
-  pool: 
-    vmImage: 'macos-latest'
-  dependsOn: []
-  displayName: iOS
-  jobs:
- 
-  - job: iOSJob
-    displayName: iOS
-    steps: 
-          
-    # replace "iosKey" and "yourPwd" with your secure file name and password
-    - task: InstallAppleCertificate@2
-      displayName: Install certificate
-      inputs:
-        certSecureFile: 'iosKey'
-        certPwd: 'yourPwd'
-        keychain: 'temp'
-    
-    # replace "ios_Profile.mobileprovision" with your secure file name
-    - task: InstallAppleProvisioningProfile@1
-      displayName: Install provisioning file
-      inputs:
-        provisioningProfileLocation: 'secureFiles'
-        provProfileSecureFile: 'ios_Profile.mobileprovision'
-        
-    - task: FlutterInstall@0
-      displayName: "Install Flutter SDK"
-      inputs:
-        mode: 'auto'
-        channel: 'stable'
-        version: 'latest'
-
-    - task: FlutterCommand@0
-      displayName: "Run Flutter diagnostics"
-      inputs:
-        projectDirectory: '.'
-        arguments: 'doctor -v'
-
-    # adjust path to the *.plist file
-    - task: FlutterBuild@0
-      displayName: "Build application"
-      inputs:
-        target: ipa
-        projectDirectory: '$(Build.SourcesDirectory)'
-        exportOptionsPlist: 'ios/exportOptions.plist'
-
-    - task: FlutterTest@0
-      displayName: "Run unit tests"
-      inputs:
-        generateCodeCoverageReport: true
-        projectDirectory: '$(Build.SourcesDirectory)'
-
-    - task: CopyFiles@2
-      displayName: "Copy app to staging directory"
-      inputs:
-        sourceFolder: '$(Agent.BuildDirectory)'
-        contents: '**/ipa/*.ipa'
-        targetFolder: '$(Build.StagingDirectory)'
-        flattenFolders: true
-
-    - task: PublishBuildArtifacts@1
-      displayName: "Publish IPA file"
-      inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'IPA'
-        publishLocation: 'Container'
-        
-- stage: winStage
-  pool: 
-    vmImage: 'windows-latest'
-  dependsOn: []
-  displayName: Windows
-  jobs:
- 
-  - job: windowsJob
-    displayName: Windows
-    steps: 
-        
-    - task: FlutterInstall@0
-      displayName: "Install Flutter SDK"
-      inputs:
-        mode: 'auto'
-        channel: 'stable'
-        version: 'latest'
-    
-    - task: FlutterCommand@0
-      displayName: "Run Flutter diagnostics"
-      inputs:
-        projectDirectory: '.'
-        arguments: 'doctor -v'
-
-    - task: FlutterBuild@0
-      displayName: "Build application"
-      inputs:
-        target: windows
-        projectDirectory: '$(Build.SourcesDirectory)'
-
-    - task: FlutterTest@0
-      displayName: "Run unit tests"
-      inputs:
-        generateCodeCoverageReport: true
-        projectDirectory: '$(Build.SourcesDirectory)'
-
-    # install package msix -> https://pub.dev/packages/msix
-    # provide signing information in pubspec.yaml -> see https://github.com/YehudaKremer/msix/tree/main/example#without-signing
-    - task: FlutterCommand@0
-      displayName: "Create MSIX file"
-      inputs:
-        projectDirectory: '$(Build.SourcesDirectory)'
-        arguments: 'pub run msix:create --build-windows false'
-
-    - task: CopyFiles@2
-      displayName: "Copy app to staging directory"
-      inputs:
-        sourceFolder: '$(Agent.BuildDirectory)'
-        contents: '**/*.msix'
-        targetFolder: '$(Build.StagingDirectory)'
-        flattenFolders: true
-
-    - task: PublishBuildArtifacts@1
-      displayName: "Publish MSIX"
-      inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'Windows'
-        publishLocation: 'Container'
