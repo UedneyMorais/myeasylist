@@ -70,13 +70,13 @@ stages:
         arguments: 'build apk --debug $(Build.SourcesDirectory)/lib/main.dart'
 
 
-#    - task: CopyFiles@2
-#      displayName: "Copiar o aplicativo para o diretório de teste"
-#      inputs:
-#        sourceFolder: '$(Agent.BuildDirectory)'
-#        contents: '**/bundle/**'
-#        targetFolder: '$(Build.StagingDirectory)'
-#        flattenFolders: true
+    - task: CopyFiles@2
+      displayName: "Copiar o aplicativo para o diretório de teste"
+      inputs:
+        sourceFolder: '$(Agent.BuildDirectory)'
+        contents: '**/apk/**'
+        targetFolder: '$(Build.StagingDirectory)'
+        flattenFolders: true
 
 #    - task: PublishBuildArtifacts@1
 #      displayName: "Publish AAB file"
