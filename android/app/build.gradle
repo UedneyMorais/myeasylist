@@ -65,6 +65,26 @@ android {
            storePassword keystoreProperties['storePassword']
        }
    }
+
+    flavorDimensions "app"
+    productFlavors {
+ 
+        dev {
+            dimension "app"
+            applicationId "com.myeasylist.app.dev"
+        }
+ 
+        qa {
+            dimension "app"
+            applicationId "com.myeasylist.app.qa"
+        }
+       
+        prod {
+            dimension "app"
+            applicationId "com.myeasylist.app"
+        }
+    }
+    
    buildTypes {
        release {
            signingConfig signingConfigs.release

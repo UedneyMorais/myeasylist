@@ -1,0 +1,59 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "myeasylist",
+            "program": "/home/uedney/Projetos/myeasylist/lib/main_prod.dart",
+            "request": "launch",
+            "type": "dart",
+            "args" : [
+                "--flavor",
+                "prod"
+            ]
+        },
+        {
+            "name": "myeasylist - DEV",
+            "program": "/home/uedney/Projetos/myeasylist/lib/main_dev.dart",
+            "request": "launch",
+            "type": "dart",
+            "args" : [
+                "--flavor",
+                "dev"
+            ]
+        },
+        {
+            "name": "myeasylist - QA",
+            "program": "/home/uedney/Projetos/myeasylist/lib/main_qa.dart",
+            "request": "launch",
+            "type": "dart",
+            "args" : [
+                "--flavor",
+                "qa"
+            ]
+        },
+        {
+            "name": "Run all tests",
+            "program": "test/",
+            "request": "launch",
+            "type": "dart",
+            "args" : [
+                "--coverage"
+            ]
+        },
+
+        {
+            "name": "Run Profile mode DEV",
+            "program": "/home/uedney/Projetos/myeasylist/lib/main_dev.dart",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile",
+            "args" : [
+                "--flavor",
+                "dev"
+            ]
+        }
+    ]
+}

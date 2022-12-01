@@ -2,14 +2,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:myeasylist/provider/home_provider.dart';
-import 'package:myeasylist/ui/home/controller/controller.dart';
-import 'package:provider/provider.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:myeasylist/infrastructure/environment_config/entities/entities.dart';
+import 'package:provider/provider.dart';
+
+import '/provider/home_provider.dart';
+import '/ui/home/controller/controller.dart';
 import '../../../domain/domain.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  EnvironmentConfig environmentConfig;
+  HomePage({Key? key,required this.environmentConfig }) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -42,7 +45,7 @@ class _HomePageState extends State<HomePage> {
     final _formKey = GlobalKey<FormState>();
     HomePageController controller = HomePageController(context: context);
 
-    Color _color = Colors.deepPurple;
+    Color _color = widget.environmentConfig.appMode == AppMode.dev ? Colors.green : widget.environmentConfig.appMode == AppMode.qa ? Colors.yellow : Colors.deepPurple;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -76,7 +79,8 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      body: Stack(children: [
+      body: Stack(
+        children: [
         Container(
           color: Colors.white,
           child: FutureBuilder(
@@ -262,7 +266,8 @@ class _HomePageState extends State<HomePage> {
             width: _width,
             child: AdWidget(ad: myBanner),
           ),
-        )
+        ),
+
       ]),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
