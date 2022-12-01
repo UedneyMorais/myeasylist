@@ -67,7 +67,7 @@ stages:
       displayName: "Aqui é o script manual"
       inputs:
         projectDirectory: '$(Build.SourcesDirectory)'
-        arguments: 'doctor -v'
+        arguments: 'build apk /lib/main.dart'
 
 
 #    - task: CopyFiles@2
