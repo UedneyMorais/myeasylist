@@ -61,7 +61,16 @@ stages:
       displayName: "Contruir aplicação"
       inputs:
         target: 'apk'
-        projectDirectory: '$(Build.SourcesDirectory)'
+        projectDirectory: '
+
+
+    - task: FlutterCommand@0
+      displayName: "Aqui é o script manual"
+      inputs:
+        
+        arguments: "doctor -v"
+
+
 
 #    - task: CopyFiles@2
 #      displayName: "Copiar o aplicativo para o diretório de teste"
