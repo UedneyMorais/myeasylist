@@ -82,7 +82,7 @@ stages:
       displayName: "Publicar arquivo APK"
       inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'APK'
+        ArtifactName: 'Android APK'
         publishLocation: 'Container'
 
 #- stage: iOSStage
