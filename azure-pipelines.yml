@@ -57,19 +57,17 @@ stages:
         generateCodeCoverageReport: true
         projectDirectory: '$(Build.SourcesDirectory)'
 
-    - task: FlutterBuild@0
-      displayName: "Contruir aplicação"
-      inputs:
-        target: 'apk'
-        projectDirectory: '
-
+#    - task: FlutterBuild@0
+#      displayName: "Contruir aplicação"
+#      inputs:
+#        target: 'apk'
+#        projectDirectory: '.''
 
     - task: FlutterCommand@0
       displayName: "Aqui é o script manual"
       inputs:
-        
-        arguments: "doctor -v"
-
+        projectDirectory: '$(Build.SourcesDirectory)'
+        arguments: 'doctor -v'
 
 
 #    - task: CopyFiles@2
