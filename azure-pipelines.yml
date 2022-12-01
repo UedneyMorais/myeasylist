@@ -67,13 +67,27 @@ stages:
 #      displayName: "Aqui é o script manual"
 #      inputs:
 #        projectDirectory: '$(Build.SourcesDirectory)'
-#        arguments: 'build apk --debug $(Build.SourcesDirectory)/lib/main.dart'
-
+#        arguments: '
     - task: FlutterBuild@0
+      displayName: "Contruir aplicação build 'DEV'"
       inputs:
         target: 'apk'
         projectDirectory: '.'
-        buildNumber: 'dev'
+        extraArgs: 'flutter build apk --flavor dev -t $(Build.SourcesDirectory)/lib/main_dev.dart'
+        
+    - task: FlutterBuild@0
+      displayName: "Contruir aplicação build 'QA'"
+      inputs:
+        target: 'apk'
+        projectDirectory: '.'
+        extraArgs: 'flutter build qa --flavor qa -t $(Build.SourcesDirectory)/lib/main_qa.dart'
+        
+    - task: FlutterBuild@0
+      displayName: "Contruir aplicação build 'PROD'"
+      inputs:
+        target: 'apk'
+        projectDirectory: '.'
+        extraArgs: 'flutter build qa --flavor prod -t $(Build.SourcesDirectory)/lib/main_prod.dart'   
 
     - task: CopyFiles@2
       displayName: "Copiar o aplicativo para o diretório de teste"
