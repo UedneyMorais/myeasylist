@@ -34,7 +34,7 @@ stages:
         targetType: 'inline'
         script: |
           cp $(keyprop.secureFilePath) $(Build.SourcesDirectory)/android/key.properties
-          cp $(key.secureFilePath) $(Build.SourcesDirectory)/android/app/key.jks
+          cp $(key.secureFilePath) $(Build.SourcesDirectory)/android/app/upload-keystore.jks
           
           echo "key.properties copied to $(Build.SourcesDirectory)/android/key.properties"
           echo "key.jks copied to $(Build.SourcesDirectory)/android/app/key.jks"
@@ -57,18 +57,17 @@ stages:
         generateCodeCoverageReport: true
         projectDirectory: '$(Build.SourcesDirectory)'
 
-#    - task: FlutterBuild@0
-#      displayName: "Contruir aplicação"
-#      inputs:
-#        target: 'apk'
-#        projectDirectory: '.''
-
-    - task: FlutterCommand@0
-      displayName: "Aqui é o script manual"
+    - task: FlutterBuild@0
+      displayName: "Contruir aplicação"
       inputs:
-        projectDirectory: '$(Build.SourcesDirectory)'
-        arguments: 'build apk --debug $(Build.SourcesDirectory)/lib/main.dart'
+        target: 'apk'
+        projectDirectory: '.'
 
+#    - task: FlutterCommand@0
+#      displayName: "Aqui é o script manual"
+#      inputs:
+#        projectDirectory: '$(Build.SourcesDirectory)'
+#        arguments: 'build apk --debug $(Build.SourcesDirectory)/lib/main.dart'
 
     - task: CopyFiles@2
       displayName: "Copiar o aplicativo para o diretório de teste"
