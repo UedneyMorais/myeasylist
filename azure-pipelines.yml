@@ -78,12 +78,12 @@ stages:
         targetFolder: '$(Build.StagingDirectory)'
         flattenFolders: true
 
-#    - task: PublishBuildArtifacts@1
-#      displayName: "Publish AAB file"
-#      inputs:
-#        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-#        ArtifactName: 'AAB'
-#        publishLocation: 'Container'
+    - task: PublishBuildArtifacts@1
+      displayName: "Publicar arquivo APK"
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'APK'
+        publishLocation: 'Container'
 
 #- stage: iOSStage
 #  pool: 
