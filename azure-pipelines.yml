@@ -57,17 +57,23 @@ stages:
         generateCodeCoverageReport: true
         projectDirectory: '$(Build.SourcesDirectory)'
 
-    - task: FlutterBuild@0
-      displayName: "Contruir aplicação"
-      inputs:
-        target: 'apk'
-        projectDirectory: '.'
+#    - task: FlutterBuild@0
+#     displayName: "Contruir aplicação"
+#      inputs:
+#        target: 'apk'
+#        projectDirectory: '.'
 
 #    - task: FlutterCommand@0
 #      displayName: "Aqui é o script manual"
 #      inputs:
 #        projectDirectory: '$(Build.SourcesDirectory)'
 #        arguments: 'build apk --debug $(Build.SourcesDirectory)/lib/main.dart'
+
+    - task: FlutterBuild@0
+      inputs:
+        target: 'apk'
+        projectDirectory: '.'
+        buildNumber: 'dev'
 
     - task: CopyFiles@2
       displayName: "Copiar o aplicativo para o diretório de teste"
