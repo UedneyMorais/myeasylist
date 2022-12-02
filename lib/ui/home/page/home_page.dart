@@ -1,4 +1,4 @@
-// ignore_for_file: sized_box_for_whitespace
+// ignore_for_file: sized_box_for_whitespace, must_be_immutable
 
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -12,7 +12,7 @@ import '../../../domain/domain.dart';
 
 class HomePage extends StatefulWidget {
   EnvironmentConfig environmentConfig;
-  HomePage({Key? key,required this.environmentConfig }) : super(key: key);
+  HomePage({Key? key, required this.environmentConfig}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -45,7 +45,11 @@ class _HomePageState extends State<HomePage> {
     final _formKey = GlobalKey<FormState>();
     HomePageController controller = HomePageController(context: context);
 
-    Color _color = widget.environmentConfig.appMode == AppMode.dev ? Colors.green : widget.environmentConfig.appMode == AppMode.qa ? Colors.yellow : Colors.deepPurple;
+    Color _color = widget.environmentConfig.appMode == AppMode.dev
+        ? Colors.green
+        : widget.environmentConfig.appMode == AppMode.qa
+            ? Colors.yellow
+            : Colors.deepPurple;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -79,8 +83,7 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      body: Stack(
-        children: [
+      body: Stack(children: [
         Container(
           color: Colors.white,
           child: FutureBuilder(
@@ -267,7 +270,6 @@ class _HomePageState extends State<HomePage> {
             child: AdWidget(ad: myBanner),
           ),
         ),
-
       ]),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
