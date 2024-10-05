@@ -13,8 +13,6 @@ Tecnologias Utilizadas
 Flutter: Framework de desenvolvimento para aplicativos móveis.
 SQL: Para armazenamento e gerenciamento de dados localmente no dispositivo.
 Dart: Linguagem de programação utilizada no desenvolvimento com Flutter.
-Instalação
-Baixe o aplicativo diretamente da Play Store Lista Fácil (insira o link aqui).
-Após a instalação, basta abrir o app e começar a criar suas listas!
+
 Contribuições
 Atualmente, este projeto não aceita contribuições. No entanto, sugestões e feedbacks são bem-vindos. Entre em contato por e-mail para fornecer sua opinião.
