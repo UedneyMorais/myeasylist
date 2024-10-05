@@ -1,16 +1,20 @@
-# myeasylist
+Lista Fácil
+Lista Fácil é um aplicativo simples, desenvolvido em Flutter, para criação e gerenciamento de listas de tarefas ou compras. O objetivo é fornecer uma interface intuitiva e de fácil uso para ajudar os usuários a organizarem suas atividades diárias de forma rápida e prática.
 
-A new Flutter project.
+Funcionalidades
+Adicionar, editar e remover itens da lista
+Interface simples e amigável
+Suporte a listas ilimitadas
+Gerenciamento rápido de tarefas
+Capturas de Tela
+(Incluir imagens de tela do aplicativo)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Tecnologias Utilizadas
+Flutter: Framework de desenvolvimento para aplicativos móveis.
+SQL: Para armazenamento e gerenciamento de dados localmente no dispositivo.
+Dart: Linguagem de programação utilizada no desenvolvimento com Flutter.
+Instalação
+Baixe o aplicativo diretamente da Play Store Lista Fácil (insira o link aqui).
+Após a instalação, basta abrir o app e começar a criar suas listas!
+Contribuições
+Atualmente, este projeto não aceita contribuições. No entanto, sugestões e feedbacks são bem-vindos. Entre em contato por e-mail para fornecer sua opinião.
