@@ -19,7 +19,8 @@ class HomePage extends StatefulWidget {
 }
 
 final BannerAd myBanner = BannerAd(
-  adUnitId: 'ca-app-pub-7865824435572987/3962924379', //'ca-app-pub-3940256099942544/6300978111',
+  adUnitId:
+      'ca-app-pub-7865824435572987/3962924379', //'ca-app-pub-3940256099942544/6300978111',
   //adUnitId: 'ca-app-pub-3940256099942544/6300978111',
   size: AdSize.banner,
   request: const AdRequest(),
@@ -61,18 +62,21 @@ class _HomePageState extends State<HomePage> {
               showDialog(
                   context: context,
                   builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: const Center(
+                    return const AlertDialog(
+                      title: Center(
                         child: Text('Guia de uso'),
                       ),
                       actions: [
                         Padding(
-                            padding: const EdgeInsets.all(16),
+                            padding: EdgeInsets.all(16),
                             child: Column(
-                              children: const [
-                                Text('1- Clique no botão + para adicionar um item.'),
-                                Text('2- Arraste um item para a direita para remove-lo ou edita-lo.'),
-                                Text('3- Faça um clique longo em um cartão para marca-lo.'),
+                              children: [
+                                Text(
+                                    '1- Clique no botão + para adicionar um item.'),
+                                Text(
+                                    '2- Arraste um item para a direita para remove-lo ou edita-lo.'),
+                                Text(
+                                    '3- Faça um clique longo em um cartão para marca-lo.'),
                               ],
                             )),
                       ],
@@ -120,77 +124,131 @@ class _HomePageState extends State<HomePage> {
                                     motion: const ScrollMotion(),
                                     children: [
                                       SlidableAction(
-                                        onPressed: (BuildContext context) async {
-                                          controller.removeItem(item: provider.items[index]);
+                                        onPressed:
+                                            (BuildContext context) async {
+                                          controller.removeItem(
+                                              item: provider.items[index]);
                                         },
-                                        backgroundColor: const Color(0xFFFE4A49),
+                                        backgroundColor:
+                                            const Color(0xFFFE4A49),
                                         foregroundColor: Colors.white,
                                         icon: Icons.delete,
                                         label: 'Deletar',
                                       ),
                                       SlidableAction(
-                                        onPressed: (BuildContext context) async {
-                                          _controllerItem.text = provider.items[index].item;
+                                        onPressed:
+                                            (BuildContext context) async {
+                                          _controllerItem.text =
+                                              provider.items[index].item;
                                           showDialog(
                                               context: context,
                                               builder: (BuildContext context) {
                                                 return Form(
                                                   key: _formKey,
                                                   child: AlertDialog(
-                                                    title: const Center(child: Text('Editar item')),
+                                                    title: const Center(
+                                                        child: Text(
+                                                            'Editar item')),
                                                     content: Row(
                                                       children: [
                                                         Flexible(
                                                           child: TextFormField(
                                                             maxLines: 3,
-                                                            controller: _controllerItem,
+                                                            controller:
+                                                                _controllerItem,
                                                             validator: (value) {
-                                                              if (value == null || value.isEmpty) {
+                                                              if (value ==
+                                                                      null ||
+                                                                  value
+                                                                      .isEmpty) {
                                                                 return "Digite uma descrição para o item.";
                                                               } else {
                                                                 return null;
                                                               }
                                                             },
-                                                            decoration: InputDecoration(
-                                                              labelText: "Descrição do item",
-                                                              labelStyle: TextStyle(color: _color),
+                                                            decoration:
+                                                                InputDecoration(
+                                                              labelText:
+                                                                  "Descrição do item",
+                                                              labelStyle:
+                                                                  TextStyle(
+                                                                      color:
+                                                                          _color),
                                                               fillColor: _color,
-                                                              border: OutlineInputBorder(
-                                                                borderRadius: const BorderRadius.only(
-                                                                  bottomLeft: Radius.circular(20),
-                                                                  topLeft: Radius.circular(20),
-                                                                  topRight: Radius.circular(20),
-                                                                  bottomRight: Radius.circular(20),
+                                                              border:
+                                                                  OutlineInputBorder(
+                                                                borderRadius:
+                                                                    const BorderRadius
+                                                                        .only(
+                                                                  bottomLeft: Radius
+                                                                      .circular(
+                                                                          20),
+                                                                  topLeft: Radius
+                                                                      .circular(
+                                                                          20),
+                                                                  topRight: Radius
+                                                                      .circular(
+                                                                          20),
+                                                                  bottomRight: Radius
+                                                                      .circular(
+                                                                          20),
                                                                 ),
-                                                                borderSide: BorderSide(
+                                                                borderSide:
+                                                                    BorderSide(
                                                                   color: _color,
                                                                 ),
                                                               ),
-                                                              focusedBorder: OutlineInputBorder(
-                                                                borderRadius: const BorderRadius.only(
-                                                                  bottomLeft: Radius.circular(20),
-                                                                  topLeft: Radius.circular(20),
-                                                                  topRight: Radius.circular(20),
-                                                                  bottomRight: Radius.circular(20),
+                                                              focusedBorder:
+                                                                  OutlineInputBorder(
+                                                                borderRadius:
+                                                                    const BorderRadius
+                                                                        .only(
+                                                                  bottomLeft: Radius
+                                                                      .circular(
+                                                                          20),
+                                                                  topLeft: Radius
+                                                                      .circular(
+                                                                          20),
+                                                                  topRight: Radius
+                                                                      .circular(
+                                                                          20),
+                                                                  bottomRight: Radius
+                                                                      .circular(
+                                                                          20),
                                                                 ),
-                                                                borderSide: BorderSide(
+                                                                borderSide:
+                                                                    BorderSide(
                                                                   color: _color,
                                                                 ),
                                                               ),
-                                                              enabledBorder: OutlineInputBorder(
-                                                                borderRadius: const BorderRadius.only(
-                                                                  bottomLeft: Radius.circular(20),
-                                                                  topLeft: Radius.circular(20),
-                                                                  topRight: Radius.circular(20),
-                                                                  bottomRight: Radius.circular(20),
+                                                              enabledBorder:
+                                                                  OutlineInputBorder(
+                                                                borderRadius:
+                                                                    const BorderRadius
+                                                                        .only(
+                                                                  bottomLeft: Radius
+                                                                      .circular(
+                                                                          20),
+                                                                  topLeft: Radius
+                                                                      .circular(
+                                                                          20),
+                                                                  topRight: Radius
+                                                                      .circular(
+                                                                          20),
+                                                                  bottomRight: Radius
+                                                                      .circular(
+                                                                          20),
                                                                 ),
-                                                                borderSide: BorderSide(
+                                                                borderSide:
+                                                                    BorderSide(
                                                                   color: _color,
                                                                 ),
                                                               ),
                                                             ),
-                                                            style: const TextStyle(
-                                                              fontFamily: "Poppins",
+                                                            style:
+                                                                const TextStyle(
+                                                              fontFamily:
+                                                                  "Poppins",
                                                             ),
                                                           ),
                                                         ),
@@ -199,29 +257,47 @@ class _HomePageState extends State<HomePage> {
                                                     actions: [
                                                       ElevatedButton(
                                                         onPressed: () {
-                                                          Navigator.of(context).pop();
+                                                          Navigator.of(context)
+                                                              .pop();
                                                         },
-                                                        child: const Text('Voltar'),
+                                                        child: const Text(
+                                                            'Voltar'),
                                                       ),
                                                       ElevatedButton(
                                                         onPressed: () async {
-                                                          bool? _formOk = _formKey.currentState!.validate();
+                                                          bool? _formOk =
+                                                              _formKey
+                                                                  .currentState!
+                                                                  .validate();
                                                           if (!_formOk) {
                                                             return;
                                                           }
-                                                          Item itemToUpdate = Item(id: provider.items[index].id, item: _controllerItem.text, checked: 0);
-                                                          controller.updateItem(item: itemToUpdate);
-                                                          _controllerItem.text = '';
-                                                          Navigator.of(context).pop();
+                                                          Item itemToUpdate = Item(
+                                                              id: provider
+                                                                  .items[index]
+                                                                  .id,
+                                                              item:
+                                                                  _controllerItem
+                                                                      .text,
+                                                              checked: 0);
+                                                          controller.updateItem(
+                                                              item:
+                                                                  itemToUpdate);
+                                                          _controllerItem.text =
+                                                              '';
+                                                          Navigator.of(context)
+                                                              .pop();
                                                         },
-                                                        child: const Text('Editar'),
+                                                        child: const Text(
+                                                            'Editar'),
                                                       )
                                                     ],
                                                   ),
                                                 );
                                               });
                                         },
-                                        backgroundColor: const Color.fromARGB(255, 126, 228, 241),
+                                        backgroundColor: const Color.fromARGB(
+                                            255, 126, 228, 241),
                                         foregroundColor: Colors.white,
                                         icon: Icons.edit,
                                         label: 'Editar',
@@ -238,15 +314,31 @@ class _HomePageState extends State<HomePage> {
                                           isChecked = 0;
                                         }
 
-                                        Item itemToUpdate = Item(id: provider.items[index].id, item: provider.items[index].item, checked: isChecked);
-                                        controller.updateItem(item: itemToUpdate);
+                                        Item itemToUpdate = Item(
+                                            id: provider.items[index].id,
+                                            item: provider.items[index].item,
+                                            checked: isChecked);
+                                        controller.updateItem(
+                                            item: itemToUpdate);
 
                                         _controllerItem.text = '';
                                       },
                                       leading: const Icon(Icons.start_rounded),
                                       title: Text(
                                         provider.items[index].item,
-                                        style: TextStyle(fontSize: 18, fontFamily: 'ArchitectsDaughter', fontWeight: provider.items[index].checked == 0 ? FontWeight.bold : FontWeight.normal, decoration: provider.items[index].checked == 1 ? TextDecoration.lineThrough : TextDecoration.none),
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontFamily: 'ArchitectsDaughter',
+                                            fontWeight:
+                                                provider.items[index].checked ==
+                                                        0
+                                                    ? FontWeight.bold
+                                                    : FontWeight.normal,
+                                            decoration:
+                                                provider.items[index].checked ==
+                                                        1
+                                                    ? TextDecoration.lineThrough
+                                                    : TextDecoration.none),
                                       ),
                                     ),
                                   ),
@@ -354,7 +446,8 @@ class _HomePageState extends State<HomePage> {
                           if (!_formOk) {
                             return;
                           }
-                          controller.addItem(itemDescription: _controllerItem.text);
+                          controller.addItem(
+                              itemDescription: _controllerItem.text);
                           _controllerItem.text = '';
                           Navigator.of(context).pop();
                         },
