@@ -11,6 +11,12 @@ if (flutterRoot == null) {
     throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
 }
 
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+
+ext.kotlin_version = "1.7.10"  // ou uma versão mais recente
+
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
     flutterVersionCode = '1'
@@ -20,10 +26,6 @@ def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
-
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 def keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file('key.properties')
@@ -49,7 +51,6 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.myeasylist.app"
         minSdkVersion 21
         targetSdkVersion 31
@@ -57,40 +58,38 @@ android {
         versionName flutterVersionName
     }
 
-   signingConfigs {
+    signingConfigs {
        release {
            keyAlias keystoreProperties['keyAlias']
            keyPassword keystoreProperties['keyPassword']
            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
            storePassword keystoreProperties['storePassword']
        }
-   }
+    }
 
     flavorDimensions "app"
     productFlavors {
- 
         dev {
             dimension "app"
             applicationId "com.myeasylist.app.dev"
         }
- 
+
         qa {
             dimension "app"
             applicationId "com.myeasylist.app.qa"
         }
-       
+
         prod {
             dimension "app"
             applicationId "com.myeasylist.app"
         }
     }
     
-   buildTypes {
+    buildTypes {
        release {
            signingConfig signingConfigs.release
        }
-   }
-
+    }
 }
 
 flutter {
@@ -98,7 +97,7 @@ flutter {
 }
 
 dependencies {
-    implementation 'com.android.support:multidex:1.0.3'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.google.android.gms:play-services-ads:21.0.0'
 }

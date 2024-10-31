@@ -6,7 +6,7 @@
     "configurations": [
         {
             "name": "myeasylist",
-            "program": "C:\\Users\\pc\\Documents\\Project\\myeasylist\\lib\\main_prod.dart",
+            "program": "/home/dev/Documents/Projects/flutter-projects/myeasylist/lib/main_prod.dart",
             "request": "launch",
             "type": "dart",
             "args" : [
@@ -16,7 +16,7 @@
         },
         {
             "name": "myeasylist - DEV",
-            "program": "C:\\Users\\pc\\Documents\\Project\\myeasylist\\lib\\main_dev.dart",
+            "program": "/home/dev/Documents/Projects/flutter-projects/myeasylist/lib/main_dev.dart",
             "request": "launch",
             "type": "dart",
             "args" : [
@@ -26,7 +26,7 @@
         },
         {
             "name": "myeasylist - QA",
-            "program": "C:\\Users\\pc\\Documents\\Project\\myeasylist\\main_qa.dart",
+            "program": "/home/dev/Documents/Projects/flutter-projects/myeasylist/lib/main_qa.dart",
             "request": "launch",
             "type": "dart",
             "args" : [
@@ -46,7 +46,7 @@
 
         {
             "name": "Run Profile mode DEV",
-            "program": "/home/uedney/Projetos/myeasylist/lib/main_dev.dart",
+            "program": "/home/dev/Documents/Projects/flutter-projects/myeasylist/lib/main_dev.dart",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile",
