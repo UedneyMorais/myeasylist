@@ -13,12 +13,6 @@
 
 ---
 
-## 📸 Capturas de Tela
-
-*(Inclua aqui imagens da interface do aplicativo, como telas de criação, edição e gerenciamento de listas.)*
-
----
-
 ## 🧑‍💻 Tecnologias Utilizadas
 
 - **Flutter**: Framework de desenvolvimento para aplicativos móveis.
@@ -42,3 +36,15 @@ Para executar o projeto, você precisará:
 1. Clone o repositório:
    ```bash
    git clone https://github.com/seu-usuario/lista-facil.git
+
+2. Navegue até a pasta do projeto:
+   ```bash
+   cd lista-facil
+   
+3. Instale as depenências:
+   ```bash
+   flutter pub get
+   
+4. Execute o projeto:
+   ```bash
+   flutter run
