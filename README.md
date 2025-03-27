@@ -2,12 +2,6 @@
 ![Dart](https://img.shields.io/badge/Dart-2.19-blue?logo=dart&style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
-<!-- Flutter Logo -->
-![Flutter](https://storage.googleapis.com/cms-storage-bucket/6a07d8a62f4308d2b854.svg)
-
-<!-- Dart Logo -->
-![Dart](https://dart.dev/assets/shared/dart-logo-for-shares.png?2)
-
 📋 Easy List
 Easy List is a simple Flutter application for creating and managing to-do or shopping lists. The goal is to provide an intuitive and easy-to-use interface, helping users organize their daily activities quickly and practically.
 
@@ -44,19 +38,17 @@ Copy
 git clone https://github.com/your-username/easy-list.git  
 Navigate to project folder:
 
-bash
-Copy
-cd easy-list  
+  ```bash
+cd easy-list
+  ```
 Install dependencies:
-
-bash
-Copy
-flutter pub get  
+  ```bash
+flutter pub get
+  ```
 Run the project:
-
-bash
-Copy
-flutter run  
+  ```bash
+flutter run
+  ```
 This maintains:
 
 All original sections
