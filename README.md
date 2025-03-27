@@ -1,14 +1,9 @@
-📋 Easy List
-Easy List is a simple Flutter application for creating and managing to-do or shopping lists. The goal is to provide an intuitive and easy-to-use interface, helping users organize their daily activities quickly and practically.
-
 ![Flutter](https://img.shields.io/badge/Flutter-3.13-blue?logo=flutter&style=flat-square)
 ![Dart](https://img.shields.io/badge/Dart-2.19-blue?logo=dart&style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
-A demonstration of a multi-module Spring Boot application with clear separation between core library and web application components.
-
-
-
+📋 Easy List
+Easy List is a simple Flutter application for creating and managing to-do or shopping lists. The goal is to provide an intuitive and easy-to-use interface, helping users organize their daily activities quickly and practically.
 
 🛠️ Features
 Add, edit, and remove list items: Easily manage tasks or shopping items
