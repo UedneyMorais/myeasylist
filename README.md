@@ -1,50 +1,44 @@
-# 📋 Lista Fácil
+📋 Easy List
+Easy List is a simple Flutter app for creating and managing to-do or shopping lists. Designed with an intuitive and user-friendly interface, it helps users quickly organize their daily tasks.
 
-**Lista Fácil** é um aplicativo simples, desenvolvido em **Flutter**, para criação e gerenciamento de listas de tarefas ou compras. O objetivo é fornecer uma interface intuitiva e de fácil uso, ajudando os usuários a organizarem suas atividades diárias de forma rápida e prática.
+🛠️ Features
+Add, edit, and remove list items: Easily manage tasks or shopping items.
 
----
+Simple and friendly UI: Intuitive design for all types of users.
 
-## 🛠️ Funcionalidades
+Unlimited lists: Create as many lists as you need.
 
-- **Adicionar, editar e remover itens da lista**: Gerencie facilmente suas tarefas ou itens de compras.
-- **Interface simples e amigável**: Design intuitivo, pensado para todos os tipos de usuários.
-- **Suporte a listas ilimitadas**: Crie quantas listas desejar sem limitações.
-- **Gerenciamento rápido de tarefas**: Marque itens como concluídos ao segurar o clique, riscando o texto.
+Quick task management: Long-press to mark items as completed (strikethrough).
 
----
+🧑‍💻 Technologies
+Flutter: Mobile app development framework.
 
-## 🧑‍💻 Tecnologias Utilizadas
+SQL: Local data storage on the device.
 
-- **Flutter**: Framework de desenvolvimento para aplicativos móveis.
-- **SQL**: Armazenamento e gerenciamento de dados localmente no dispositivo.
-- **Dart**: Linguagem de programação utilizada no desenvolvimento com Flutter.
+Dart: Programming language used with Flutter.
 
----
+⚙️ Prerequisites
+To run the project, you’ll need:
 
-## ⚙️ Pré-requisitos
+Flutter (minimum version 3.0.0).
 
-Para executar o projeto, você precisará:
+Dart SDK.
 
-- **Flutter** (versão mínima 3.0.0).
-- **Dart SDK**.
-- Um emulador ou dispositivo físico para testar o aplicativo.
+An emulator or physical device for testing.
 
----
-
-## 🚀 Como executar o projeto
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/seu-usuario/lista-facil.git
-
-2. Navegue até a pasta do projeto:
-   ```bash
-   cd lista-facil
-   
-3. Instale as depenências:
-   ```bash
-   flutter pub get
-   
-4. Execute o projeto:
-   ```bash
-   flutter run
+🚀 How to Run
+Clone the repository:
+```bash
+git clone https://github.com/your-username/easy-list.git
+```
+Navigate to the project folder:
+```bash
+cd easy-list
+```
+Install dependencies:
+```bash
+flutter pub get
+```
+Run the app:
+```bash
+flutter run  
