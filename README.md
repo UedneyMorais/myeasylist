@@ -49,15 +49,3 @@ Run the project:
   ```bash
 flutter run
   ```
-This maintains:
-
-All original sections
-
-The same formatting style
-
-All technical details
-
-The exact same structure as your Portuguese version
-
-Only the language has changed to English
-
