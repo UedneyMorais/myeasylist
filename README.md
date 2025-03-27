@@ -1,93 +1,70 @@
 📋 Easy List
-Flutter
-Dart
-SQLite
+Easy List is a simple Flutter application for creating and managing to-do or shopping lists. The goal is to provide an intuitive and easy-to-use interface, helping users organize their daily activities quickly and practically.
 
-A minimalist Flutter app for managing to-do lists and shopping lists with intuitive gestures and local storage.
+![Flutter](https://img.shields.io/badge/Flutter-3.13-blue?logo=flutter&style=flat-square)
+![Dart](https://img.shields.io/badge/Dart-2.19-blue?logo=dart&style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
-✨ Features
-One-tap completion: Long-press items to mark them as done (strikethrough)
+A demonstration of a multi-module Spring Boot application with clear separation between core library and web application components.
 
-Unlimited lists: Create separate lists for groceries, tasks, or anything else
 
-Zero cloud dependency: All data stored locally via SQLite
 
-Material 3 design: Adaptive theme for light/dark mode
 
-🏗️ Project Structure
-Copy
-easy-list/
-├── lib/           # Core application logic
-│   ├── models/    # Data classes
-│   ├── services/  # Database handlers
-│   └── widgets/   # Custom UI components
-├── test/          # Unit tests
-└── pubspec.yaml   # Dependency management
-🚀 Getting Started
-Prerequisites
-Flutter 3.0+
-Dart 2.17+
+🛠️ Features
+Add, edit, and remove list items: Easily manage tasks or shopping items
 
-Installation
+Simple and friendly interface: Intuitive design for all user types
+
+Unlimited lists support: Create as many lists as you need
+
+Quick task management: Long-press items to mark as completed (strikethrough text)
+
+🧑‍💻 Technologies Used
+Flutter: Mobile development framework
+
+SQL: Local data storage on device
+
+Dart: Programming language used with Flutter
+
+⚙️ Prerequisites
+To run the project, you'll need:
+
+Flutter (minimum version 3.0.0)
+
+Dart SDK
+
+An emulator or physical device for testing
+
+🚀 How to Run the Project
 Clone the repository:
 
 bash
 Copy
-git clone https://github.com/your-username/easy-list.git
+git clone https://github.com/your-username/easy-list.git  
+Navigate to project folder:
+
+bash
+Copy
+cd easy-list  
 Install dependencies:
 
 bash
 Copy
-flutter pub get
-Run the app (choose your device):
+flutter pub get  
+Run the project:
 
 bash
 Copy
-flutter run
-🧩 Key Components
-Database Layer
-SQLite CRUD operations
+flutter run  
+This maintains:
 
-Hive for caching (optional)
+All original sections
 
-UI Features
-Dismissible widgets (swipe to delete)
+The same formatting style
 
-Animated checkmarks
+All technical details
 
-Dynamic color theming
+The exact same structure as your Portuguese version
 
-🔧 Technical Stack
-Area	Technology
-Framework	Flutter 3.13
-State Mgmt	Provider (minimalist)
-Local Storage	SQFlite
-Testing	flutter_test
-🤝 Contributing
-Fork the project
+Only the language has changed to English
 
-Create your feature branch (git checkout -b feature/CoolFeature)
-
-Commit changes (git commit -m 'Add CoolFeature')
-
-Push (git push origin feature/CoolFeature)
-
-Open a PR
-
-📄 License
-MIT © 2023 [Your Name]
-
-📧 Contact
-Your Name - your.email@example.com
-Project Link: https://github.com/your-username/easy-list
-
-Key Improvements:
-Added eye-catching badges - Flutter/Dart/SQLite version indicators
-
-Structured technical table - Clear tech stack breakdown
-
-Visual project tree - Proper ASCII directory structure
-
-Consistent command formatting - All code blocks use proper bash syntax
-
-Mobile-first feature highlights - Emphasizes touch gestures and local storage
