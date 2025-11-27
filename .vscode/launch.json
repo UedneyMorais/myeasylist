@@ -6,30 +6,30 @@
     "configurations": [
         {
             "name": "myeasylist",
-            "program": "/home/dev/Documents/Projects/flutter-projects/myeasylist/lib/main_prod.dart",
+            "program": "/home/dev/Documents/projects/myeasylist/lib/main_prod.dart",
             "request": "launch",
             "type": "dart",
-            "args" : [
+            "args": [
                 "--flavor",
                 "prod"
             ]
         },
         {
             "name": "myeasylist - DEV",
-            "program": "/home/dev/Documents/Projects/flutter-projects/myeasylist/lib/main_dev.dart",
+            "program": "/home/dev/Documents/projects/myeasylist/lib/main_dev.dart",
             "request": "launch",
             "type": "dart",
-            "args" : [
+            "args": [
                 "--flavor",
                 "dev"
             ]
         },
         {
             "name": "myeasylist - QA",
-            "program": "/home/dev/Documents/Projects/flutter-projects/myeasylist/lib/main_qa.dart",
+            "program": "/home/dev/Documents/projects/myeasylist/lib/main_qa.dart",
             "request": "launch",
             "type": "dart",
-            "args" : [
+            "args": [
                 "--flavor",
                 "qa"
             ]
@@ -39,18 +39,17 @@
             "program": "test/",
             "request": "launch",
             "type": "dart",
-            "args" : [
+            "args": [
                 "--coverage"
             ]
         },
-
         {
             "name": "Run Profile mode DEV",
-            "program": "/home/dev/Documents/Projects/flutter-projects/myeasylist/lib/main_dev.dart",
+            "program": "/home/dev/Documents/projects/myeasylist/libmain_dev.dart",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile",
-            "args" : [
+            "args": [
                 "--flavor",
                 "dev"
             ]

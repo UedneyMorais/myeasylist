@@ -1,2 +1,2 @@
-export './controller/controller.dart';
-export './page/page.dart';
+export 'controller/controller.dart';
+export 'page/page.dart';

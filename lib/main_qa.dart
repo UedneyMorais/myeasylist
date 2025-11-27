@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:myeasylist/infrastructure/environment_config/entities/entities.dart';
-import '/myeasylist.dart';
+import 'package:myeasylist/myeasylist.dart';
+import './infrastructure/infrastructure.dart';
 
 void main() {
-  EnvironmentConfig environmentConfig =  EnvironmentConfig(appMode: AppMode.qa);
-  runApp( Myeasylist(environmentConfig: environmentConfig,));
+  EnvironmentConfig environmentConfig = EnvironmentConfig(appMode: AppMode.qa);
+  runApp(Myeasylist(
+    environmentConfig: environmentConfig,
+  ));
 }
-
-

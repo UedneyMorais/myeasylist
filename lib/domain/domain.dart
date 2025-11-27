@@ -1,1 +1,1 @@
-export './entities/item.dart';
+export 'entities/item.dart';

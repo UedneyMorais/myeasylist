@@ -1,1 +1,1 @@
-export './environment_config/environment_config.dart';
+export 'environment_config/environment_config.dart';
